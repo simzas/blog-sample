@@ -4,10 +4,10 @@ export default function Setup() {
     return (
         <section className="sm:m-4 text-base">
             <p className="p-4">Author: <Link href={'https://github.com/simzas'} className="blue-link hover:underline">simzas</Link> / <Link href={'https://github.com/simzas/blog-sample'} className="blue-link font-semibold hover:underline">blog-sample</Link></p>
-            <div className="sm:rounded-md border-slate-800 border-y-[1px] border-x-[1px] sx:border-[1px]">
+            <div className="sm:rounded-md sm:border-[1px] border-slate-800 border-t-[1px] border-x-[1px]">
                 <h4 className="text-slate-400 text-sm p-4">Fake README.md file HUE HUE HUE</h4>
                 <div className="border-b-[1px] border-slate-800"></div>
-                <div className="m-8 max-w-2xl">
+                <div className="m-4 sm:m-8 max-w-2xl">
                     <p>This is a <Link href="https://nextjs.org/" target="_blank" className="blue-link">Next.js</Link> project bootstrapped with <code className="bg-slate-800 px-2 py-1 rounded-lg min-w-36 max-w-48">create-next-app</code>.</p>
 
                     <h2 className="text-2xl mt-6 font-semibold">Getting Started</h2>
