@@ -1,7 +1,5 @@
-import Head from 'next/head'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,9 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-sky-800 text-sky-100`}>
+      <body className={`${inter.className} bg-slate-950 text-slate-200`}>
         <Navbar />
-        {children}
+        <div className='flex justify-center'>
+          {children}
+        </div>
       </body>
     </html>
   )
