@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .blue-link {
+        color: #0ea5e9;
+    }
+
+    .blue-link:hover {
+        color: #38bdf8;
+    }
+}
