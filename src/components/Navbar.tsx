@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
                 <Link href={'/posts'} className='px-4 py-4 sm:py-0 sm:hover:underline hover:bg-slate-800 sm:hover:bg-transparent hover:cursor-pointer'>Posts</Link>
             </ul>
             <ul className='flex flex-col sm:flex-row align-center'>
-                <Link href={'/about'} className='px-4 py-4 sm:py-0 sm:hover:underline hover:bg-slate-800 sm:hover:bg-transparent hover:cursor-pointer'>About</Link>
+                <Link href={'/setup'} className='px-4 py-4 sm:py-0 sm:hover:underline hover:bg-slate-800 sm:hover:bg-transparent hover:cursor-pointer'>Setup</Link>
             </ul>
         </nav>
     )
