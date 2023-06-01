@@ -1,22 +1,12 @@
 "use client"
 
+import { FC } from 'react';
 import Link from 'next/link';
 
-interface PostComponentProps {
-    post: {
-        postID: number;
-        userID: number;
-        title: string;
-        username: string;
-        website: string;
-        body: string;
-    }
-}
-
-const PostComponent: React.FC<PostComponentProps> = ({ post }) => {
+const PostComponent: FC<PostProps> = ({ post }) => {
 
     return (
-        <div key={post.postID} className="py-4 md:min-w-[600px]">
+        <div className="py-4 md:min-w-[600px]">
             <div className="bg-slate-900 rounded border-[1px] border-slate-700
                     hover:border-slate-600">
                 <p className="px-4 pt-4 text-2xl first-letter:uppercase">{post.title}</p>
