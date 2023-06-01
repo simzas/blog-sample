@@ -1,22 +1,12 @@
 "use client"
 
-import PostComponent from '../../components/Post'
+import PostComponent from '../../components/PostComponent'
 import getPosts from '../../services/ApiServices'
-
-//const queryClient = new QueryClient()
 
 export default async function Post() {
 
     //TODO přepsat
     let posts = await getPosts();
-
-    /* const { status, data, error, isFetching } = useQuery({
-        queryKey: ['posts'],
-        queryFn: async () => {
-            const posts = await getPosts();
-            return posts;
-        }
-    }) */
 
     return (
         <section className="p-4 md:px-12 md:py-8">
