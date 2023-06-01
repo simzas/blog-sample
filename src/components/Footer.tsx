@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         justify-center align-center px-4 mt-2 py-4 
         sm:flex-row sm:py-6 sm:mt-6
         text-md text-slate-400 border-t-[1px] border-neutral-800 bg-gray-950'>
-            <div>Copy<span className='line-through text-slate-600'>right</span>left 2023 by <Link href={'https://github.com/simzas'} className='cursor-pointer'>Šimon Zasadil</Link></div>
+            <address><small>Copy<span className='line-through text-slate-600'>right</span>left <time dateTime='2023'>2023</time> by <Link href={'https://github.com/simzas'} className='cursor-pointer'>Šimon Zasadil</Link></small></address>
         </nav>
     )
 }
