@@ -114,27 +114,33 @@ export default async function getPosts() {
 } */
 
 class ApiService {
-    url;
+    private url: string;
 
     constructor(url: string) {
         this.url = url;
     }
 
-    async fetchData(endpoint: string, options: RequestInit) {
-        const data = await fetch(`${this.url}/${endpoint}`, options)
-            .then((data) => data.json())
-            .catch((e) => { console.log(`Error loading ${endpoint}: `, e) });
-        return data;
+    private async fetchData(endpoint: string, options: RequestInit): Promise<any> {
+        try {
+            const response = await fetch(`${this.url}/${endpoint}`, options);
+            if (!response.ok) {
+                throw new Error(`Error loading ${endpoint}: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    async get(endpoint: string) {
+    public async get(endpoint: string): Promise<any> {
         const options = {
             method: 'GET',
         };
         return this.fetchData(endpoint, options);
     }
 
-    async post(endpoint: string, body: any) {
+    public async post(endpoint: string, body: any): Promise<any> {
         const options = {
             method: 'POST',
             body: JSON.stringify(body),
@@ -145,7 +151,7 @@ class ApiService {
         return this.fetchData(endpoint, options);
     }
 
-    async put(endpoint: string, body: any) {
+    public async put(endpoint: string, body: any): Promise<any> {
         const options = {
             method: 'PUT',
             body: JSON.stringify(body),
@@ -156,44 +162,37 @@ class ApiService {
         return this.fetchData(endpoint, options);
     }
 
-    async delete(endpoint: string) {
+    public async delete(endpoint: string): Promise<void> {
         const options = {
             method: 'DELETE',
         };
         return this.fetchData(endpoint, options);
     }
 
-    async getPosts(): Promise<Post[]> {
-        let plainPosts = await this.get('posts');
-        let users = await this.get('users');
+    public async getPosts(): Promise<Post[]> {
+        const plainPosts: Post[] = await this.get('posts');
+        const users: User[] = await this.get('users');
+        try {
+            const posts: Post[] = plainPosts.map(((post: Post) => {
+                const { userId, id, title, body } = post;
+                const user = users[userId];
+                const username = user ? user.username : '';
+                const website = user ? user.website : '';
+                const city = user ? user.address.city : '';
 
-        if (plainPosts !== undefined || users !== undefined) {
-
-            if (plainPosts.length > 0 && users.length > 0) {
-                const posts = plainPosts.map(((post: Post) => {
-                    const { userId, id, title, body } = post;
-                    const user = users[userId];
-                    const username = user ? user.username : '';
-                    const website = user ? user.website : '';
-                    const city = user ? user.address.city : '';
-
-                    return {
-                        id,
-                        userId,
-                        title,
-                        body,
-                        username,
-                        website,
-                        city
-                    };
-                }));
-
-                return posts;
-            } else {
-                return [];
-            }
-        } else {
-            console.log("its undefined");
+                return {
+                    id,
+                    userId,
+                    title,
+                    body,
+                    username,
+                    website,
+                    city
+                };
+            }));
+            return posts;
+        } catch (e) {
+            console.log(e);
             return [];
         }
     }
