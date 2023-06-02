@@ -196,6 +196,11 @@ class ApiService {
             return [];
         }
     }
+
+    public async getUserProfile(id: number): Promise<User> {
+        const user: User = await this.get(`/users/${id}`);
+        return user;
+    }
 }
 
 export default ApiService;
