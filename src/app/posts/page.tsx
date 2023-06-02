@@ -1,12 +1,13 @@
-"use client"
+"use server"
 
 import PostComponent from '../../components/PostComponent'
-import getPosts from '../../services/ApiServices'
+import ApiService from '../../services/ApiService'
+
+const apiServices = new ApiService('https://jsonplaceholder.typicode.com');
 
 export default async function Post() {
 
-    //TODO přepsat
-    let posts = await getPosts();
+    const posts = await apiServices.getPosts();
 
     return (
         <section className="p-4 md:px-12 md:py-8">
