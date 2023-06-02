@@ -172,7 +172,7 @@ class ApiService {
             if (plainPosts.length > 0 && users.length > 0) {
                 const posts = plainPosts.map(((post: Post) => {
                     const { userId, id, title, body } = post;
-                    const user = users.find((user: any) => user.id === userId);
+                    const user = users[userId];
                     const username = user ? user.username : '';
                     const website = user ? user.website : '';
                     const city = user ? user.address.city : '';
