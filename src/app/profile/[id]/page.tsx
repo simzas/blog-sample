@@ -1,14 +1,12 @@
-//import ApiService from "@/services/ApiService";
-
 import React from 'react';
+import ApiService from '@/services/ApiService';
 import Link from 'next/link';
 
-//const apiService = new ApiService('https://jsonplaceholder.typicode.com');
+const apiService = new ApiService('https://jsonplaceholder.typicode.com');
 
 async function getUser(id: number): Promise<User> {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
-  //const res = await apiService.getUserProfile(id);
-  return res.json();
+  const res = await apiService.getUserProfile(id);
+  return res;
 }
 
 export async function generateMetadata({
@@ -49,14 +47,17 @@ export default async function Page({
           <p>{user.address.zipcode}</p>
         </div>
       </div>
-      <div className="flex flex-col self-start m-8">
+      <div className="flex flex-col m-8">
         <p className="text-3xl md:text-center">Contact</p>
-        <div className="flex flex-row flex-wrap">
-          {/* <Link href={user.website} target="_blank" className="m-2">
-          WEB
-        </Link> */}
-          {/* TODO fix link to absolute path */}
-
+        <div className="flex flex-row flex-wrap md:justify-center">
+          <a
+            href={'https://www.' + user.website}
+            className="my-2 mr-2"
+            target="_blank"
+            rel="noreferrer"
+          >
+            WEB
+          </a>
           <Link
             href="mailto:recipient@example.com"
             target="_blank"
@@ -64,13 +65,12 @@ export default async function Page({
           >
             EMAIL
           </Link>
-
           <Link
             href={`https://www.google.com/maps/search/?api=1&query=${user.address.geo.lat},${user.address.geo.lng}`}
             target="_blank"
-            className="m-2"
+            className="my-2 ml-2"
           >
-            MAPA
+            MAP
           </Link>
         </div>
       </div>
