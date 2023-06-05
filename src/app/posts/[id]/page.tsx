@@ -1,9 +1,10 @@
-export default function PostDetail() {
+import React from 'react';
 
-    return (
-        <div className="flex flex-col">
-            <p>Post detail page....TODO</p>
-            <p>https://jsonplaceholder.typicode.com/posts/2</p>
-        </div>
-    )
+export default function PostDetail(): unknown {
+  return (
+    <div className="flex flex-col">
+      <p>Post detail page....TODO</p>
+      <p>https://jsonplaceholder.typicode.com/posts/2</p>
+    </div>
+  );
 }

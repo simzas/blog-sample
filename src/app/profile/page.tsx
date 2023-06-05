@@ -1,6 +1,9 @@
-export default function Profile() {
+import React from 'react';
 
-    return (<>
-        <p>Authors page.</p>
-    </>);
+export default function Profile(): unknown {
+  return (
+    <>
+      <p>Authors page.</p>
+    </>
+  );
 }
