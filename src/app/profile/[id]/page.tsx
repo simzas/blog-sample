@@ -58,11 +58,7 @@ export default async function Page({
           >
             WEB
           </a>
-          <Link
-            href="mailto:recipient@example.com"
-            target="_blank"
-            className="m-2"
-          >
+          <Link href={'mailto:' + user.email} target="_blank" className="m-2">
             EMAIL
           </Link>
           <Link
