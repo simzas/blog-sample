@@ -9,6 +9,10 @@ async function getUser(id: number): Promise<User> {
   return res;
 }
 
+const capitalizeFirstLetter = (string: string): string => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
 export async function generateMetadata({
   params
 }: {
@@ -37,7 +41,8 @@ export default async function Page({
         <div className="m-8">
           <h3 className="text-3xl">Personal info</h3>
           <p>{user.name}</p>
-          <p>{user.email}</p>
+          <p>{user.company.catchPhrase}</p>
+          <p>{capitalizeFirstLetter(user.company.bs)}</p>
         </div>
         <div className="m-8">
           <h3 className="text-3xl">Location</h3>
