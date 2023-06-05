@@ -1,7 +1,10 @@
 /* eslint-disable indent */
 /** @type {import('next').NextConfig} */
-export const nextConfig = {
+const nextConfig = {
     experimental: {
         serverActions: true
     }
 }
+
+// eslint-disable-next-line no-undef
+module.exports = nextConfig;
