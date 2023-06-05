@@ -29,7 +29,7 @@ export default async function Page({
 }) {
   const user = await getUser(params.id);
   return <section className="flex flex-col self-center">
-    <h1 className="text-5xl text-center m-6">{user.username}'s profile</h1>
+    <h1 className="text-5xl text-center m-6">{user.username}&apos;s profile</h1>
 
     <div className="flex flex-col md:flex-row">
       <div className="m-8">
