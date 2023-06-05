@@ -175,7 +175,7 @@ class ApiService {
         try {
             const posts: Post[] = plainPosts.map(((post: Post) => {
                 const { userId, id, title, body } = post;
-                const user = users[userId];
+                const user = users[userId - 1];
                 const username = user ? user.username : '';
                 const website = user ? user.website : '';
                 const city = user ? user.address.city : '';
