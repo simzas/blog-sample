@@ -2,10 +2,8 @@ import React from 'react';
 import ApiService from '@/services/ApiService';
 import Link from 'next/link';
 
-const apiService = new ApiService('https://jsonplaceholder.typicode.com');
-
 async function getUser(id: number): Promise<User> {
-  const res = await apiService.getUserProfile(id);
+  const res = await ApiService.getInstance().getUserProfile(id);
   return res;
 }
 

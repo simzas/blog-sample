@@ -2,9 +2,20 @@
 
 class ApiService {
   private url: string;
+  private static apiServiceInstance: ApiService;
 
-  constructor(url: string) {
+  private constructor(url: string) {
     this.url = url;
+  }
+
+  public static getInstance(): ApiService {
+    if (!ApiService.apiServiceInstance) {
+      ApiService.apiServiceInstance = new ApiService(
+        'https://jsonplaceholder.typicode.com'
+      );
+    }
+
+    return ApiService.apiServiceInstance;
   }
 
   private async fetchData(
