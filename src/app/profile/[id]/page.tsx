@@ -1,15 +1,12 @@
 import React from 'react';
 import ApiService from '@/services/ApiService';
 import Link from 'next/link';
+import { capitalizeFirstLetter } from '@/functions/capitalizeFirstLetter';
 
 async function getUser(id: number): Promise<User> {
   const res = await ApiService.getInstance().getUserProfile(id);
   return res;
 }
-
-const capitalizeFirstLetter = (string: string): string => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
 
 export async function generateMetadata({
   params
